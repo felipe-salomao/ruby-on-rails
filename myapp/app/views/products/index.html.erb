@@ -1,0 +1,13 @@
+<%= link_to 'Criar Produto', new_product_path %>
+
+<% @products.each do |product| %>
+
+<p> <%= product.name %> </p>
+<p> <%= product.quantidade %> </p>
+<p> <%= product.price %> </p>
+
+<%= link_to 'ver produto', product %>
+<%= link_to 'editar produto', edit_product_path(product) %>
+<%= button_to 'apagar', product, method: :delete, form: { data: { turbo_confirm: "Você quer apagar este produto?" } }  %>
+
+<% end %>
